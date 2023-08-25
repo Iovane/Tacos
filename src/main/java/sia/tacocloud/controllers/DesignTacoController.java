@@ -3,10 +3,7 @@ package sia.tacocloud.controllers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import sia.tacocloud.entities.Ingredient;
 import sia.tacocloud.entities.Ingredient.Type;
 import sia.tacocloud.entities.Taco;
@@ -34,8 +31,8 @@ public class DesignTacoController {
                 new Ingredient("JACK", "Monterrey Jack", Type.CHEESE),
                 new Ingredient("SLSA", "Salsa", Type.SAUCE),
                 new Ingredient("SRCR", "Sour Cream", Type.SAUCE),
-                new Ingredient("SPIC", "Spicy", Type.SHAWARMA),
-                new Ingredient("MOWE", "More Wet", Type.SHAWARMA)
+                new Ingredient("LEMO", "Lemon", Type.CITRON),
+                new Ingredient("LIME", "Lime", Type.CITRON)
         );
 
         Type[] types = Ingredient.Type.values();
@@ -59,7 +56,13 @@ public class DesignTacoController {
         return "design";
     }
 
+    @PostMapping
+    public String processTaco(Taco taco, @ModelAttribute TacoOrder tacoOrder) {
+        tacoOrder.addTaco(taco);
+        log.info("Processing taco: {}", taco);
 
+        return "redirect:/orders/current";
+    }
 
     private Iterable<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
 
