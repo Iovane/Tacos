@@ -1,0 +1,19 @@
+.another {
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 200px;
+}
+
+/* Styling the list of taco names */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+    margin-right: 20px;
+}
+
+ul li {
+    margin-bottom: 5px;
+}

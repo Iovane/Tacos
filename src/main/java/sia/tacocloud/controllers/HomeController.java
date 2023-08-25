@@ -22,7 +22,7 @@ public class HomeController {
 
     @PostMapping
     public String designTaco(){
-        log.info("Proceeding to Design your Tacos");
+        log.info("Designing your Tacos");
 
         return "redirect:/design";
     }
