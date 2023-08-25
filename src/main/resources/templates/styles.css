@@ -1,0 +1,21 @@
+/* Reset default margin and padding for all elements */
+body, h1, h2, h3, p, div {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply flexbox layout to the ingredient groups container */
+.grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow wrapping to create a multi-row layout */
+}
+
+/* Style for each ingredient group column */
+.ingredient-group {
+    flex-basis: calc(50% - 10px); /* Each column takes 50% width minus spacing */
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
